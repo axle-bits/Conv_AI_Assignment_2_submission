@@ -19,7 +19,6 @@ in [`report/report.md`](report/report.md) / [`report/report.docx`](report/report
 - `outputs/` — every logged metric, evaluation table, rubric score, and generated plot
 - `models/*/adapter_config.json`, `models/*/README.md` — LoRA/DPO adapter configs for
   all 4 saved adapters (rank, alpha, target modules, base model)
-- `memory/` — a running log of the decisions and environment notes behind this project
 
 ## Trained adapter weights
 
