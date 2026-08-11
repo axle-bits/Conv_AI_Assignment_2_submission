@@ -1,0 +1,32 @@
+{
+  "r": 32,
+  "lr": 0.0005,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "target_modules_label": "ATTN_MLP",
+  "lora_alpha": 64,
+  "eval_loss": 0.8433675765991211,
+  "selection_process": {
+    "stage1_rank_sweep": {
+      "8": 1.0579822063446045,
+      "16": 0.9889799356460571,
+      "32": 0.9303323030471802
+    },
+    "stage2_lr_sweep": {
+      "0.0002": 0.9303323030471802,
+      "0.0001": 1.0394935607910156,
+      "0.0005": 0.8433675765991211
+    },
+    "stage3_target_modules": {
+      "ATTN_MLP": 0.8433675765991211,
+      "ATTN_ONLY": 0.9563558101654053
+    }
+  }
+}

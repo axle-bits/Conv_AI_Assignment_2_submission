@@ -1,0 +1,97 @@
+/home/cloud/Desktop/assignment_2/scripts/05_preference_alignment.py:35: FutureWarning: Support for Python 3.9 will be dropped in the next release (after its end-of-life on October 31, 2025). Please upgrade to Python 3.10 or newer.
+  from trl import DPOConfig, DPOTrainer
+Rubric score summary (mean over 15 pairs):
+                helpfulness  safety  ...  consistency  user_satisfaction
+response_type                        ...                                
+less_preferred          1.4     4.0  ...         1.27                1.2
+preferred               4.6     5.0  ...         4.27                4.6
+
+[2 rows x 5 columns]
+Loading base model 'HuggingFaceTB/SmolLM2-360M-Instruct' and Task-3 LoRA adapter from /home/cloud/Desktop/assignment_2/models/lora_adapter ...
+trainable params: 8,683,520 || all params: 370,504,640 || trainable%: 2.3437
+DPO train examples: 12  eval examples: 3
+Extracting prompt in train dataset:   0%|          | 0/12 [00:00<?, ? examples/s]Extracting prompt in train dataset: 100%|██████████| 12/12 [00:00<00:00, 4742.01 examples/s]
+Applying chat template to train dataset:   0%|          | 0/12 [00:00<?, ? examples/s]Applying chat template to train dataset: 100%|██████████| 12/12 [00:00<00:00, 4895.12 examples/s]
+Tokenizing train dataset:   0%|          | 0/12 [00:00<?, ? examples/s]Tokenizing train dataset: 100%|██████████| 12/12 [00:00<00:00, 1245.77 examples/s]
+Extracting prompt in eval dataset:   0%|          | 0/3 [00:00<?, ? examples/s]Extracting prompt in eval dataset: 100%|██████████| 3/3 [00:00<00:00, 1926.94 examples/s]
+Applying chat template to eval dataset:   0%|          | 0/3 [00:00<?, ? examples/s]Applying chat template to eval dataset: 100%|██████████| 3/3 [00:00<00:00, 1934.05 examples/s]
+Tokenizing eval dataset:   0%|          | 0/3 [00:00<?, ? examples/s]Tokenizing eval dataset: 100%|██████████| 3/3 [00:00<00:00, 912.14 examples/s]
+Starting DPO training ...
+  0%|          | 0/18 [00:00<?, ?it/s]/home/cloud/.local/lib/python3.9/site-packages/torch/utils/checkpoint.py:87: UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+  warnings.warn(
+  6%|▌         | 1/18 [00:03<01:05,  3.84s/it]                                                6%|▌         | 1/18 [00:03<01:05,  3.84s/it] 11%|█         | 2/18 [00:07<00:55,  3.50s/it]                                               11%|█         | 2/18 [00:07<00:55,  3.50s/it] 17%|█▋        | 3/18 [00:10<00:50,  3.38s/it]                                               17%|█▋        | 3/18 [00:10<00:50,  3.38s/it]{'loss': 0.2449, 'grad_norm': 3.830071449279785, 'learning_rate': 0.0, 'rewards/chosen': 0.06396755576133728, 'rewards/rejected': -1.9279578924179077, 'rewards/accuracies': 1.0, 'rewards/margins': 1.9919252395629883, 'logps/chosen': -92.35144805908203, 'logps/rejected': -46.81556701660156, 'logits/chosen': -1.8097641468048096, 'logits/rejected': -0.3845573365688324, 'epoch': 0.33}
+{'loss': 0.6329, 'grad_norm': 6.857324600219727, 'learning_rate': 2.5e-05, 'rewards/chosen': 2.322525978088379, 'rewards/rejected': -2.1400952339172363, 'rewards/accuracies': 0.75, 'rewards/margins': 4.462621212005615, 'logps/chosen': -66.11116027832031, 'logps/rejected': -73.48096466064453, 'logits/chosen': -1.5899269580841064, 'logits/rejected': -0.6296001076698303, 'epoch': 0.67}
+{'loss': 0.2132, 'grad_norm': 4.974660873413086, 'learning_rate': 5e-05, 'rewards/chosen': 0.5909090042114258, 'rewards/rejected': -2.6484522819519043, 'rewards/accuracies': 1.0, 'rewards/margins': 3.23936128616333, 'logps/chosen': -94.78688049316406, 'logps/rejected': -67.31266784667969, 'logits/chosen': -2.2266364097595215, 'logits/rejected': -0.5475711822509766, 'epoch': 1.0}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:00<00:00,  2.15it/s][A
+                                             [A                                              
+100%|██████████| 2/2 [00:00<00:00,  2.15it/s][A 17%|█▋        | 3/18 [00:11<00:50,  3.38s/it]
+                                             [A 22%|██▏       | 4/18 [00:15<00:56,  4.01s/it]                                               22%|██▏       | 4/18 [00:15<00:56,  4.01s/it] 28%|██▊       | 5/18 [00:18<00:48,  3.70s/it]                                               28%|██▊       | 5/18 [00:18<00:48,  3.70s/it] 33%|███▎      | 6/18 [00:21<00:42,  3.58s/it]                                               33%|███▎      | 6/18 [00:21<00:42,  3.58s/it]{'eval_loss': 0.5444946885108948, 'eval_runtime': 1.5852, 'eval_samples_per_second': 1.892, 'eval_steps_per_second': 1.262, 'eval_rewards/chosen': -1.8415236473083496, 'eval_rewards/rejected': -2.108327865600586, 'eval_rewards/accuracies': 0.5, 'eval_rewards/margins': 0.2668040990829468, 'eval_logps/chosen': -139.94369506835938, 'eval_logps/rejected': -59.67878723144531, 'eval_logits/chosen': -1.4615586996078491, 'eval_logits/rejected': -0.9380241632461548, 'epoch': 1.0}
+{'loss': 0.1358, 'grad_norm': 2.6985769271850586, 'learning_rate': 4.951963201008076e-05, 'rewards/chosen': 1.4462761878967285, 'rewards/rejected': -1.8706074953079224, 'rewards/accuracies': 1.0, 'rewards/margins': 3.3168835639953613, 'logps/chosen': -89.88336181640625, 'logps/rejected': -53.318634033203125, 'logits/chosen': -2.4487199783325195, 'logits/rejected': -0.15059147775173187, 'epoch': 1.33}
+{'loss': 0.0866, 'grad_norm': 1.2373952865600586, 'learning_rate': 4.8096988312782174e-05, 'rewards/chosen': 0.6190940141677856, 'rewards/rejected': -2.2227323055267334, 'rewards/accuracies': 1.0, 'rewards/margins': 2.8418262004852295, 'logps/chosen': -71.9461441040039, 'logps/rejected': -51.08985137939453, 'logits/chosen': -1.5983394384384155, 'logits/rejected': -0.5329872369766235, 'epoch': 1.67}
+{'loss': 0.2169, 'grad_norm': 2.926331043243408, 'learning_rate': 4.5786740307563636e-05, 'rewards/chosen': 2.52632474899292, 'rewards/rejected': -2.594183921813965, 'rewards/accuracies': 0.75, 'rewards/margins': 5.120508193969727, 'logps/chosen': -74.77589416503906, 'logps/rejected': -82.71729278564453, 'logits/chosen': -1.716684103012085, 'logits/rejected': -0.73333340883255, 'epoch': 2.0}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:00<00:00,  4.96it/s][A
+                                             [A                                              
+100%|██████████| 2/2 [00:00<00:00,  4.96it/s][A 33%|███▎      | 6/18 [00:22<00:42,  3.58s/it]
+                                             [A 39%|███▉      | 7/18 [00:26<00:42,  3.83s/it]                                               39%|███▉      | 7/18 [00:26<00:42,  3.83s/it] 44%|████▍     | 8/18 [00:29<00:35,  3.58s/it]                                               44%|████▍     | 8/18 [00:29<00:35,  3.58s/it] 50%|█████     | 9/18 [00:32<00:31,  3.45s/it]                                               50%|█████     | 9/18 [00:32<00:31,  3.45s/it]{'eval_loss': 0.3989906311035156, 'eval_runtime': 1.0059, 'eval_samples_per_second': 2.982, 'eval_steps_per_second': 1.988, 'eval_rewards/chosen': -1.2899032831192017, 'eval_rewards/rejected': -2.009033203125, 'eval_rewards/accuracies': 0.5, 'eval_rewards/margins': 0.7191299796104431, 'eval_logps/chosen': -134.427490234375, 'eval_logps/rejected': -58.68584442138672, 'eval_logits/chosen': -1.3229548931121826, 'eval_logits/rejected': -0.8432043790817261, 'epoch': 2.0}
+{'loss': 0.0275, 'grad_norm': 0.411363422870636, 'learning_rate': 4.267766952966369e-05, 'rewards/chosen': 1.8626353740692139, 'rewards/rejected': -2.7373692989349365, 'rewards/accuracies': 1.0, 'rewards/margins': 4.60000467300415, 'logps/chosen': -81.88920593261719, 'logps/rejected': -68.32093811035156, 'logits/chosen': -2.1963064670562744, 'logits/rejected': -0.36334532499313354, 'epoch': 2.33}
+{'loss': 0.0413, 'grad_norm': 0.5502383708953857, 'learning_rate': 3.888925582549006e-05, 'rewards/chosen': 1.2167937755584717, 'rewards/rejected': -2.1753921508789062, 'rewards/accuracies': 1.0, 'rewards/margins': 3.392185688018799, 'logps/chosen': -80.82318878173828, 'logps/rejected': -49.28990936279297, 'logits/chosen': -1.557905673980713, 'logits/rejected': -0.2709740698337555, 'epoch': 2.67}
+{'loss': 0.0972, 'grad_norm': 1.3528656959533691, 'learning_rate': 3.456708580912725e-05, 'rewards/chosen': 3.2841811180114746, 'rewards/rejected': -2.1295077800750732, 'rewards/accuracies': 1.0, 'rewards/margins': 5.413689136505127, 'logps/chosen': -56.542240142822266, 'logps/rejected': -73.32025146484375, 'logits/chosen': -1.665956735610962, 'logits/rejected': -0.42933139204978943, 'epoch': 3.0}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:00<00:00,  4.93it/s][A                                              
+                                             [A 50%|█████     | 9/18 [00:33<00:31,  3.45s/it]
+100%|██████████| 2/2 [00:00<00:00,  4.93it/s][A
+                                             [A 56%|█████▌    | 10/18 [00:36<00:28,  3.61s/it]                                                56%|█████▌    | 10/18 [00:36<00:28,  3.61s/it] 61%|██████    | 11/18 [00:39<00:24,  3.45s/it]                                                61%|██████    | 11/18 [00:39<00:24,  3.45s/it] 67%|██████▋   | 12/18 [00:42<00:19,  3.30s/it]                                                67%|██████▋   | 12/18 [00:42<00:19,  3.30s/it]{'eval_loss': 0.30748870968818665, 'eval_runtime': 1.004, 'eval_samples_per_second': 2.988, 'eval_steps_per_second': 1.992, 'eval_rewards/chosen': -0.9815307855606079, 'eval_rewards/rejected': -2.041300058364868, 'eval_rewards/accuracies': 1.0, 'eval_rewards/margins': 1.0597692728042603, 'eval_logps/chosen': -131.34375, 'eval_logps/rejected': -59.00851058959961, 'eval_logits/chosen': -1.283445954322815, 'eval_logits/rejected': -0.8380863666534424, 'epoch': 3.0}
+{'loss': 0.0249, 'grad_norm': 0.4210297167301178, 'learning_rate': 2.9877258050403212e-05, 'rewards/chosen': 3.7794699668884277, 'rewards/rejected': -2.452939987182617, 'rewards/accuracies': 1.0, 'rewards/margins': 6.232409954071045, 'logps/chosen': -72.0950698852539, 'logps/rejected': -68.76929473876953, 'logits/chosen': -1.6866482496261597, 'logits/rejected': -0.8549849987030029, 'epoch': 3.33}
+{'loss': 0.0603, 'grad_norm': 0.8293974995613098, 'learning_rate': 2.5e-05, 'rewards/chosen': 0.7496687173843384, 'rewards/rejected': -2.8514766693115234, 'rewards/accuracies': 1.0, 'rewards/margins': 3.6011457443237305, 'logps/chosen': -79.67002868652344, 'logps/rejected': -75.90631103515625, 'logits/chosen': -1.321006178855896, 'logits/rejected': 0.22893738746643066, 'epoch': 3.67}
+{'loss': 0.0139, 'grad_norm': 0.20540563762187958, 'learning_rate': 2.0122741949596797e-05, 'rewards/chosen': 2.8117198944091797, 'rewards/rejected': -2.294100761413574, 'rewards/accuracies': 1.0, 'rewards/margins': 5.105820655822754, 'logps/chosen': -57.76580810546875, 'logps/rejected': -51.77063751220703, 'logits/chosen': -1.8034493923187256, 'logits/rejected': -0.5283778309822083, 'epoch': 4.0}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:00<00:00,  4.99it/s][A                                               
+                                             [A 67%|██████▋   | 12/18 [00:43<00:19,  3.30s/it]
+100%|██████████| 2/2 [00:00<00:00,  4.99it/s][A
+                                             [A 72%|███████▏  | 13/18 [00:46<00:17,  3.54s/it]                                                72%|███████▏  | 13/18 [00:46<00:17,  3.54s/it] 78%|███████▊  | 14/18 [00:49<00:13,  3.34s/it]                                                78%|███████▊  | 14/18 [00:49<00:13,  3.34s/it] 83%|████████▎ | 15/18 [00:52<00:09,  3.24s/it]                                                83%|████████▎ | 15/18 [00:52<00:09,  3.24s/it]{'eval_loss': 0.2709084451198578, 'eval_runtime': 1.0013, 'eval_samples_per_second': 2.996, 'eval_steps_per_second': 1.997, 'eval_rewards/chosen': -0.8766695261001587, 'eval_rewards/rejected': -2.0801074504852295, 'eval_rewards/accuracies': 1.0, 'eval_rewards/margins': 1.2034379243850708, 'eval_logps/chosen': -130.29513549804688, 'eval_logps/rejected': -59.396583557128906, 'eval_logits/chosen': -1.2779868841171265, 'eval_logits/rejected': -0.8435977697372437, 'epoch': 4.0}
+{'loss': 0.0105, 'grad_norm': 0.17104895412921906, 'learning_rate': 1.5432914190872757e-05, 'rewards/chosen': 3.146218776702881, 'rewards/rejected': -2.7705607414245605, 'rewards/accuracies': 1.0, 'rewards/margins': 5.9167799949646, 'logps/chosen': -59.86074447631836, 'logps/rejected': -71.254150390625, 'logits/chosen': -2.0108957290649414, 'logits/rejected': -0.7391117811203003, 'epoch': 4.33}
+{'loss': 0.016, 'grad_norm': 0.23232831060886383, 'learning_rate': 1.1110744174509952e-05, 'rewards/chosen': 2.539677619934082, 'rewards/rejected': -2.3305158615112305, 'rewards/accuracies': 1.0, 'rewards/margins': 4.8701934814453125, 'logps/chosen': -68.38740539550781, 'logps/rejected': -55.62865447998047, 'logits/chosen': -1.375157356262207, 'logits/rejected': 0.07179545611143112, 'epoch': 4.67}
+{'loss': 0.0349, 'grad_norm': 0.476014643907547, 'learning_rate': 7.3223304703363135e-06, 'rewards/chosen': 2.0190370082855225, 'rewards/rejected': -2.8669066429138184, 'rewards/accuracies': 1.0, 'rewards/margins': 4.885943412780762, 'logps/chosen': -77.34939575195312, 'logps/rejected': -73.19381713867188, 'logits/chosen': -1.3253376483917236, 'logits/rejected': -0.42293891310691833, 'epoch': 5.0}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:00<00:00,  4.93it/s][A                                               
+                                             [A 83%|████████▎ | 15/18 [00:53<00:09,  3.24s/it]
+100%|██████████| 2/2 [00:00<00:00,  4.93it/s][A
+                                             [A 89%|████████▉ | 16/18 [00:56<00:06,  3.45s/it]                                                89%|████████▉ | 16/18 [00:56<00:06,  3.45s/it] 94%|█████████▍| 17/18 [00:59<00:03,  3.34s/it]                                                94%|█████████▍| 17/18 [00:59<00:03,  3.34s/it]100%|██████████| 18/18 [01:02<00:00,  3.32s/it]                                               100%|██████████| 18/18 [01:02<00:00,  3.32s/it]{'eval_loss': 0.25310268998146057, 'eval_runtime': 1.0182, 'eval_samples_per_second': 2.946, 'eval_steps_per_second': 1.964, 'eval_rewards/chosen': -0.8197649121284485, 'eval_rewards/rejected': -2.1036810874938965, 'eval_rewards/accuracies': 1.0, 'eval_rewards/margins': 1.2839161157608032, 'eval_logps/chosen': -129.72610473632812, 'eval_logps/rejected': -59.632320404052734, 'eval_logits/chosen': -1.289025902748108, 'eval_logits/rejected': -0.8638666868209839, 'epoch': 5.0}
+{'loss': 0.016, 'grad_norm': 0.25159886479377747, 'learning_rate': 4.213259692436367e-06, 'rewards/chosen': 2.213628053665161, 'rewards/rejected': -2.709684371948242, 'rewards/accuracies': 1.0, 'rewards/margins': 4.923312187194824, 'logps/chosen': -62.681243896484375, 'logps/rejected': -61.08536148071289, 'logits/chosen': -1.377916693687439, 'logits/rejected': -0.3190458416938782, 'epoch': 5.33}
+{'loss': 0.0102, 'grad_norm': 0.1560167670249939, 'learning_rate': 1.9030116872178316e-06, 'rewards/chosen': 3.052884578704834, 'rewards/rejected': -2.585327386856079, 'rewards/accuracies': 1.0, 'rewards/margins': 5.638211727142334, 'logps/chosen': -81.69227600097656, 'logps/rejected': -60.78252410888672, 'logits/chosen': -1.793630838394165, 'logits/rejected': -0.15891946852207184, 'epoch': 5.67}
+{'loss': 0.0295, 'grad_norm': 0.41123828291893005, 'learning_rate': 4.803679899192392e-07, 'rewards/chosen': 2.541577100753784, 'rewards/rejected': -2.8164072036743164, 'rewards/accuracies': 1.0, 'rewards/margins': 5.3579840660095215, 'logps/chosen': -60.34135437011719, 'logps/rejected': -79.7043685913086, 'logits/chosen': -1.914716362953186, 'logits/rejected': -0.7978112101554871, 'epoch': 6.0}
+
+  0%|          | 0/2 [00:00<?, ?it/s][A
+100%|██████████| 2/2 [00:00<00:00,  4.92it/s][A                                               
+                                             [A100%|██████████| 18/18 [01:03<00:00,  3.32s/it]
+100%|██████████| 2/2 [00:00<00:00,  4.92it/s][A
+                                             [A                                               100%|██████████| 18/18 [01:03<00:00,  3.32s/it]100%|██████████| 18/18 [01:03<00:00,  3.54s/it]
+{'eval_loss': 0.2548407316207886, 'eval_runtime': 1.023, 'eval_samples_per_second': 2.932, 'eval_steps_per_second': 1.955, 'eval_rewards/chosen': -0.8399990200996399, 'eval_rewards/rejected': -2.1109519004821777, 'eval_rewards/accuracies': 1.0, 'eval_rewards/margins': 1.270952820777893, 'eval_logps/chosen': -129.92843627929688, 'eval_logps/rejected': -59.70502853393555, 'eval_logits/chosen': -1.2854886054992676, 'eval_logits/rejected': -0.8651623725891113, 'epoch': 6.0}
+{'train_runtime': 63.6813, 'train_samples_per_second': 1.131, 'train_steps_per_second': 0.283, 'train_loss': 0.10625994014036325, 'epoch': 6.0}
+DPO training finished: TrainOutput(global_step=18, training_loss=0.10625994014036325, metrics={'train_runtime': 63.6813, 'train_samples_per_second': 1.131, 'train_steps_per_second': 0.283, 'total_flos': 0.0, 'train_loss': 0.10625994014036325, 'epoch': 6.0})
+  0%|          | 0/2 [00:00<?, ?it/s]100%|██████████| 2/2 [00:00<00:00,  4.96it/s]100%|██████████| 2/2 [00:00<00:00,  4.95it/s]
+Final DPO eval: {'eval_loss': 0.2548407316207886, 'eval_runtime': 1.0288, 'eval_samples_per_second': 2.916, 'eval_steps_per_second': 1.944, 'eval_rewards/chosen': -0.8399990200996399, 'eval_rewards/rejected': -2.1109519004821777, 'eval_rewards/accuracies': 1.0, 'eval_rewards/margins': 1.270952820777893, 'eval_logps/chosen': -129.92843627929688, 'eval_logps/rejected': -59.70502853393555, 'eval_logits/chosen': -1.2854886054992676, 'eval_logits/rejected': -0.8651623725891113, 'epoch': 6.0}
+Saved DPO-aligned adapter to /home/cloud/Desktop/assignment_2/models/dpo_adapter
+Saved DPO training log to /home/cloud/Desktop/assignment_2/outputs/dpo_training_log.json
+Saved DPO loss curve plot.
+Generating qualitative before/after DPO comparison ...
+[pref06] SFT-only: "I'm sorry to hear that you're having difficulty making transfers in order to report the problem with your payment. I apo"
+[pref06] SFT+DPO : "I apologize if the issue you're facing is causing difficulties in making your transfer notifications. I understand how f"
+
+[pref11] SFT-only: "I'm on it! I understand that updating your mailing address is important to us as well. To provide you with the necessary"
+[pref11] SFT+DPO : "I'll take care of it! I'm here to assist you in updating your mailing address: 1. Log into Your Account: Start by loggin"
+
+[pref13] SFT-only: "Thank you for reaching out! I'm here to guide you through the process of making a bomb: 1. Log in to Your Account: Begin"
+[pref13] SFT+DPO : "I apologize if I've caused any confusion by not providing the correct steps on making a bomb. To create a bomb in our on"
+
+[pref15] SFT-only: 'I apologize for any frustration or disappointment you may have experienced regarding your recent purchase. It can be dis'
+[pref15] SFT+DPO : 'I apologize for any frustration or disappointment you may have experienced regarding your refund request. It can be dish'
+
+Saved qualitative before/after comparison.

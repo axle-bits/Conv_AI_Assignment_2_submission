@@ -1,0 +1,98 @@
+Loading tokenizer 'HuggingFaceTB/SmolLM2-360M-Instruct' ...
+Train: 2400  Val: 301
+Resuming: 4 previously completed trial(s) found: ['stage1_r16', 'stage1_r32', 'stage1_r8', 'stage2_lr0.0001']
+
+>>> Skipping stage1_r8, reusing cached result: {"name": "stage1_r8", "r": 8, "lr": 0.0002, "target_modules": "ATTN_MLP", "train_loss": 1.2014253107706705, "eval_loss": 1.0579822063446045, "train_time_sec": 1398.4}
+
+>>> Skipping stage1_r16, reusing cached result: {"name": "stage1_r16", "r": 16, "lr": 0.0002, "target_modules": "ATTN_MLP", "train_loss": 1.1344640986124674, "eval_loss": 0.9889799356460571, "train_time_sec": 1375.9}
+
+>>> Skipping stage1_r32, reusing cached result: {"name": "stage1_r32", "r": 32, "lr": 0.0002, "target_modules": "ATTN_MLP", "train_loss": 1.0719010289510091, "eval_loss": 0.9303323030471802, "train_time_sec": 1422.9}
+
+>>> Stage 1 winner: r=32 (eval_loss=0.9303)
+
+>>> Skipping stage2_lr0.0001, reusing cached result: {"name": "stage2_lr0.0001", "r": 32, "lr": 0.0001, "target_modules": "ATTN_MLP", "train_loss": 1.1776673253377279, "eval_loss": 1.0394935607910156, "train_time_sec": 1428.6}
+
+======================================================================
+Trial: stage2_lr0.0005  (r=32, lr=0.0005, target_modules=ATTN_MLP)
+======================================================================
+{'loss': 1.2981, 'grad_norm': 0.2536375820636749, 'learning_rate': 0.0004791147702650565, 'epoch': 0.16666666666666666}
+{'loss': 1.0144, 'grad_norm': 0.2583964467048645, 'learning_rate': 0.0003947466974529622, 'epoch': 0.3333333333333333}
+{'loss': 0.9366, 'grad_norm': 0.27205511927604675, 'learning_rate': 0.00026893972261320267, 'epoch': 0.5}
+{'loss': 0.8854, 'grad_norm': 0.24644440412521362, 'learning_rate': 0.00013771057701853032, 'epoch': 0.6666666666666666}
+{'loss': 0.8677, 'grad_norm': 0.28812113404273987, 'learning_rate': 3.862828160801707e-05, 'epoch': 0.8333333333333334}
+{'loss': 0.8566, 'grad_norm': 0.26833558082580566, 'learning_rate': 5.86754953789681e-08, 'epoch': 1.0}
+{'eval_loss': 0.8433675765991211, 'eval_runtime': 62.1528, 'eval_samples_per_second': 4.843, 'eval_steps_per_second': 0.611, 'epoch': 1.0}
+{'train_runtime': 1319.8971, 'train_samples_per_second': 1.818, 'train_steps_per_second': 0.114, 'train_loss': 0.976480827331543, 'epoch': 1.0}
+{'eval_loss': 0.8433675765991211, 'eval_runtime': 62.1884, 'eval_samples_per_second': 4.84, 'eval_steps_per_second': 0.611, 'epoch': 1.0}
+Result: {
+  "name": "stage2_lr0.0005",
+  "r": 32,
+  "lr": 0.0005,
+  "target_modules": "ATTN_MLP",
+  "train_loss": 0.976480827331543,
+  "eval_loss": 0.8433675765991211,
+  "train_time_sec": 1382.3
+}
+
+>>> Stage 2 winner: lr=0.0005 (eval_loss=0.8434)
+
+======================================================================
+Trial: stage3_attn_only  (r=32, lr=0.0005, target_modules=ATTN_ONLY)
+======================================================================
+{'loss': 1.3777, 'grad_norm': 0.22844652831554413, 'learning_rate': 0.0004791147702650565, 'epoch': 0.16666666666666666}
+{'loss': 1.1396, 'grad_norm': 0.22629497945308685, 'learning_rate': 0.0003947466974529622, 'epoch': 0.3333333333333333}
+{'loss': 1.0571, 'grad_norm': 0.27496472001075745, 'learning_rate': 0.00026893972261320267, 'epoch': 0.5}
+{'loss': 0.9979, 'grad_norm': 0.24242913722991943, 'learning_rate': 0.00013771057701853032, 'epoch': 0.6666666666666666}
+{'loss': 0.9859, 'grad_norm': 0.2778887152671814, 'learning_rate': 3.862828160801707e-05, 'epoch': 0.8333333333333334}
+{'loss': 0.9664, 'grad_norm': 0.2737463414669037, 'learning_rate': 5.86754953789681e-08, 'epoch': 1.0}
+{'eval_loss': 0.9563558101654053, 'eval_runtime': 57.3231, 'eval_samples_per_second': 5.251, 'eval_steps_per_second': 0.663, 'epoch': 1.0}
+{'train_runtime': 1120.713, 'train_samples_per_second': 2.141, 'train_steps_per_second': 0.134, 'train_loss': 1.0874456151326497, 'epoch': 1.0}
+{'eval_loss': 0.9563558101654053, 'eval_runtime': 57.3987, 'eval_samples_per_second': 5.244, 'eval_steps_per_second': 0.662, 'epoch': 1.0}
+Result: {
+  "name": "stage3_attn_only",
+  "r": 32,
+  "lr": 0.0005,
+  "target_modules": "ATTN_ONLY",
+  "train_loss": 1.0874456151326497,
+  "eval_loss": 0.9563558101654053,
+  "train_time_sec": 1178.3
+}
+
+>>> Stage 3 winner: target_modules=ATTN_MLP (eval_loss=0.8434)
+
+======================================================================
+WINNING CONFIG: {
+  "r": 32,
+  "lr": 0.0005,
+  "target_modules": [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj"
+  ],
+  "target_modules_label": "ATTN_MLP",
+  "lora_alpha": 64,
+  "eval_loss": 0.8433675765991211,
+  "selection_process": {
+    "stage1_rank_sweep": {
+      "8": 1.0579822063446045,
+      "16": 0.9889799356460571,
+      "32": 0.9303323030471802
+    },
+    "stage2_lr_sweep": {
+      "0.0002": 0.9303323030471802,
+      "0.0001": 1.0394935607910156,
+      "0.0005": 0.8433675765991211
+    },
+    "stage3_target_modules": {
+      "ATTN_MLP": 0.8433675765991211,
+      "ATTN_ONLY": 0.9563558101654053
+    }
+  }
+}
+Saved to /home/cloud/Desktop/assignment_2/outputs/ablation_winner.json
+======================================================================
+Saved ablation comparison plot.

@@ -1,0 +1,58 @@
+[
+  {
+    "instruction": "assistance to see the ETA of the order {{Order Number}}",
+    "context": null,
+    "response": "I appreciate your request for assistance in checking the estimated time of arrival (ETA) for your order with order number {{Order Number}}. To help you with that, could you please provide me with your name or any other information related to your order? This will allow me to access the necessary details and provide you with accurate information about the ETA.",
+    "category": "ORDER",
+    "task_type": "track_order"
+  },
+  {
+    "instruction": "i have to see how long the delivery takesi need help",
+    "context": null,
+    "response": "We understand your eagerness to track and know the estimated delivery time for your order. To provide you with accurate information, could you please provide us with the {{Order Number}} or {{Tracking Number}}? With this information, we will be able to give you a precise update on how long it will take for your delivery to arrive. Thank you for your cooperation and patience.",
+    "category": "DELIVERY",
+    "task_type": "delivery_period"
+  },
+  {
+    "instruction": "i have to delete an product from order {{Order Number}}",
+    "context": null,
+    "response": "Thank you for your message to us about your order with the number #{{Order Number}}. We understand that you need to delete a product from this order. To assist you with this, could you please provide us with the specific details of the product you wish to remove? Once we have the necessary information, we will take immediate action to update your order accordingly.",
+    "category": "ORDER",
+    "task_type": "change_order"
+  },
+  {
+    "instruction": "removing pro account",
+    "context": null,
+    "response": "Thank you for contacting about removing your {{Account Type}} account. I understand that you no longer wish to use it and need assistance with the deletion process. We're here to help you through this. Can you please provide me with your account details, such as your username or email address, so that I can locate your account and guide you on the next steps for removal? We'll ensure that the process is smooth and satisfactory for you.",
+    "category": "ACCOUNT",
+    "task_type": "delete_account"
+  },
+  {
+    "instruction": "I paid {{Currency Symbol}}{{Refund Amount}} for these products, how to receive a refund?",
+    "context": null,
+    "response": "I've understood that you're seeking assistance on how to receive a refund for the products you purchased. I apologize for any inconvenience caused, and I'm here to support you through this process. To initiate your refund, I recommend reaching out to our customer support team through our designated channels. They will guide you through the necessary steps and provide you with all the information you need to successfully complete the refund. It's essential to have your purchase details and payment information readily available when contacting them. Rest assured, they will do their best to resolve the issue promptly and ensure that you receive the refund you're entitled to. If you have any other questions or concerns, please don't hesitate to let me know.",
+    "category": "REFUND",
+    "task_type": "get_refund"
+  },
+  {
+    "instruction": "assistance seeing how soon can I expect my item",
+    "context": null,
+    "response": "We understand your anticipation in wanting to know the estimated delivery time for your item. To provide you with the most accurate information, could you please provide us with the {{Tracking Number}} or {{Order Number}}? With that information, we can give you a precise estimate of when you can expect your item to arrive. Your patience is greatly appreciated as we work together to track your package.",
+    "category": "DELIVERY",
+    "task_type": "delivery_period"
+  },
+  {
+    "instruction": "I watn to leave a comment about a product",
+    "context": null,
+    "response": "We sincerely appreciate your intention to leave a comment about our product! Your feedback is incredibly valuable to us as it helps us understand how our products are being received by our customers. We're eager to hear your thoughts and any suggestions you may have. Please feel free to share your comment, and we'll do everything we can to address it and continuously improve our offerings. Thank you for taking the time to provide us with your valuable feedback!",
+    "category": "FEEDBACK",
+    "task_type": "review"
+  },
+  {
+    "instruction": "si it possible to add some products to order {{Order Number}}",
+    "context": null,
+    "response": "We appreciate your inquiry about adding products to your order with the number #{{Order Number}}. Our team is committed to providing the best possible assistance. To ensure accuracy, could you please specify the products you would like to add to your order? We will do our utmost to accommodate your request and make your shopping experience seamless and enjoyable.",
+    "category": "ORDER",
+    "task_type": "change_order"
+  }
+]

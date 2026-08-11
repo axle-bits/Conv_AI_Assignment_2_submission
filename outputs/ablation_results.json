@@ -1,0 +1,56 @@
+[
+  {
+    "name": "stage1_r8",
+    "r": 8,
+    "lr": 0.0002,
+    "target_modules": "ATTN_MLP",
+    "train_loss": 1.2014253107706705,
+    "eval_loss": 1.0579822063446045,
+    "train_time_sec": 1398.4
+  },
+  {
+    "name": "stage1_r16",
+    "r": 16,
+    "lr": 0.0002,
+    "target_modules": "ATTN_MLP",
+    "train_loss": 1.1344640986124674,
+    "eval_loss": 0.9889799356460571,
+    "train_time_sec": 1375.9
+  },
+  {
+    "name": "stage1_r32",
+    "r": 32,
+    "lr": 0.0002,
+    "target_modules": "ATTN_MLP",
+    "train_loss": 1.0719010289510091,
+    "eval_loss": 0.9303323030471802,
+    "train_time_sec": 1422.9
+  },
+  {
+    "name": "stage2_lr0.0001",
+    "r": 32,
+    "lr": 0.0001,
+    "target_modules": "ATTN_MLP",
+    "train_loss": 1.1776673253377279,
+    "eval_loss": 1.0394935607910156,
+    "train_time_sec": 1428.6
+  },
+  {
+    "name": "stage2_lr0.0005",
+    "r": 32,
+    "lr": 0.0005,
+    "target_modules": "ATTN_MLP",
+    "train_loss": 0.976480827331543,
+    "eval_loss": 0.8433675765991211,
+    "train_time_sec": 1382.3
+  },
+  {
+    "name": "stage3_attn_only",
+    "r": 32,
+    "lr": 0.0005,
+    "target_modules": "ATTN_ONLY",
+    "train_loss": 1.0874456151326497,
+    "eval_loss": 0.9563558101654053,
+    "train_time_sec": 1178.3
+  }
+]
