@@ -30,14 +30,13 @@ in [`Group_136.docx`](Group_136.docx).
 - `data/processed/` — cleaned train/val/test splits, the preference dataset, and the
   safety-augmentation set
 - `outputs/` — every logged metric, evaluation table, rubric score, and generated plot
-- `models/*/adapter_config.json`, `models/*/README.md` — LoRA/DPO adapter configs for
-  all 4 saved adapters (rank, alpha, target modules, base model)
+- `models/*/` — all 4 LoRA/DPO adapters in full, including the trained weights
+  (`adapter_model.safetensors`, 34-67MB each, ~199MB total) and their configs
 
 ## Trained adapter weights
 
-The actual adapter weights (`adapter_model.safetensors`, 34-67MB each, ~202MB total
-across the 4 adapters) aren't committed to this repo. Full submission folder, including
-the weights:
+Committed in full under `models/` in this repo (see above), and also mirrored on Google
+Drive:
 
 **Google Drive:** https://drive.google.com/drive/folders/1QFQYWSOzgltGdmQDERH9RbmFIKgoQSCz?usp=drive_link
 
