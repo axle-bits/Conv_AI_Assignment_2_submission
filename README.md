@@ -29,6 +29,9 @@ in [`Group_136.docx`](Group_136.docx).
 - `python scripts/` — the same pipeline as separate per-task Python scripts
 - `data/processed/` — cleaned train/val/test splits, the preference dataset, and the
   safety-augmentation set
+- `data/raw/bitext_raw_sample.csv` — a 2,000-row raw sample of the source HuggingFace
+  dataset, cached during Task 1 preprocessing (full source:
+  [`bitext/Bitext-customer-support-llm-chatbot-training-dataset`](https://huggingface.co/datasets/bitext/Bitext-customer-support-llm-chatbot-training-dataset))
 - `outputs/` — every logged metric, evaluation table, rubric score, and generated plot
 - `models/*/` — all 4 LoRA/DPO adapters in full, including the trained weights
   (`adapter_model.safetensors`, 34-67MB each, ~199MB total) and their configs
