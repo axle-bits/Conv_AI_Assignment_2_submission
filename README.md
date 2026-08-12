@@ -14,9 +14,18 @@ in [`report/Group_136.docx`](report/Group_136.docx).
 - `report/Group_136.docx` — the written report (cover page, TOC, all 5 tasks + extension
   + conclusions, Virtual Lab screenshots embedded inline)
 - `report/screenshots/` — Virtual Lab proof-of-execution screenshots as standalone image
-  files, including live re-runs of Task 2/3/5 executed directly from this notebook
-- `PS2_Full_Pipeline.ipynb` — a single self-contained notebook covering all 5 tasks plus
-  the follow-up extension, with no dependency on any other file in this repo
+  files, including live execution runs from the notebooks below
+- Notebooks — split into three parts so each stays well within the Virtual Lab's memory
+  budget (a single combined notebook was tried first but crashed there). Each is
+  self-contained (a "recap" cell re-derives all Part 1 setup in seconds — no repeated
+  training) and skips any adapter that's already been trained and saved to disk, so a
+  re-run only does the training that's actually missing:
+  - `PS2_Part1_Tasks1-5.ipynb` — Setup, Task 1 (dataset), Task 2 (baseline), Task 3
+    (LoRA fine-tuning), Task 4 (comparative eval), Task 5 (preference alignment + DPO)
+  - `PS2_Part2_Ablation_Safety_V2Retrain.ipynb` — Extension Phase A (LoRA hyperparameter
+    ablation), Phase B (safety-augmented training data), Phase C (final v2 retrain)
+  - `PS2_Part3_V2Eval_DPO.ipynb` — Extension Phase D (re-evaluating v2, safety holdout
+    generalization test, DPO on top of v2) and Overall Conclusions
 - `scripts/` — the same pipeline as separate per-task Python scripts
 - `data/processed/` — cleaned train/val/test splits, the preference dataset, and the
   safety-augmentation set
